@@ -14,45 +14,47 @@ function getComputerChoice(...computerSelection) {
 // const playerSelection = prompt("choose rock, paper or scissors: ").toLowerCase();
 
 
-function round(playerSelection, computerSelection){
+function round(playerSelection, computerSelection) {
     if (playerSelection === rock && computerSelection === rock) {
-        alert("Draw, rock can't beat rock");
-    } else if (playerSelection === rock && computerSelection === scissors){
-         alert("You win, rock beats scissors");
-         playerScore++;
+    alert("Draw, rock can't beat rock");
+    } else if (playerSelection === rock && computerSelection === scissors) {
+    alert("You win, rock beats scissors");
+    playerScore++;
     } else if (playerSelection === rock && computerSelection === paper) {
-         alert("You lose, paper beat rock");
-         computerScore++;
+    alert("You lose, paper beats rock");
+    computerScore++;
     } else if (playerSelection === paper && computerSelection === paper) {
-         alert("Draw, paper can't beat paper");
+    alert("Draw, paper can't beat paper");
     } else if (playerSelection === paper && computerSelection === rock) {
-         alert("You win, paper beats rock");
-         playerScore++;
+    alert("You win, paper beats rock");
+    playerScore++;
     } else if (playerSelection === paper && computerSelection === scissors) {
-         alert("You lose, scissors beat paper");
-         computerScore++;
+    alert("You lose, scissors beat paper");
+    computerScore++;
     } else if (playerSelection === scissors && computerSelection === scissors) {
-         alert("Draw, scissors can't beat scissors");
+    alert("Draw, scissors can't beat scissors");
     } else if (playerSelection === scissors && computerSelection === paper) {
-         alert("You win, scissors beat paper");
-         playerScore++;
+    alert("You win, scissors beats paper");
+    playerScore++;
     } else if (playerSelection === scissors && computerSelection === rock) {
-         alert("You lose, rock beat scissors");
-         computerScore++;
+    alert("You lose, rock beats scissors");
+    computerScore++;
     } else {
-        alert("invalid answer, please type a correct answer")
+    alert("Invalid answer, please type a correct answer");
     };
 }
 
-function game(){ for (let i = 0; i < 5; i++){
-    const playerSelection = prompt("choose rock, paper or scissors: ").toLowerCase();
-    const computerAnswer = getComputerChoice(rock, paper, scissors);
-    round(playerSelection, computerAnswer);
-}
-
+function game() {
+    for (let i = 0; i < 5; i++) {
+      const playerSelection = prompt("Choose rock, paper or scissors: ").toLowerCase();
+      const computerAnswer = getComputerChoice(rock, paper, scissors);
+      round(playerSelection, computerAnswer);
+    }
 }
  
-function gameScore(){if (playerScore > computerScore) {
+
+function gameScore(){
+    if (playerScore > computerScore) {
     alert("Congratulations! You won the game!");
 } else if (playerScore < computerScore){
     alert("Sorry, you lost the game. Better luck next time!");
