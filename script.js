@@ -1,13 +1,15 @@
-const rock = "rock";
-const paper = "paper";
-const scissors = "scissors";
+const rock = "rock"
+const paper = "paper"
+const scissors = "scissors"
+
+const choices = [rock, paper, scissors]
 
 let playerScore = 0;
 let computerScore = 0;
 
 
-function getComputerChoice(...computerSelection) {
-    return computerSelection[Math.floor(Math.random() * computerSelection.length)];
+function getComputerChoice(choices) {
+    return choices[Math.floor(Math.random() * choices.length)];
 }
 
 // const computerAnswer = getComputerChoice(rock, paper, scissors);
@@ -44,24 +46,69 @@ function round(playerSelection, computerSelection) {
     };
 }
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-      const playerSelection = prompt("Choose rock, paper or scissors: ").toLowerCase();
-      const computerAnswer = getComputerChoice(rock, paper, scissors);
-      round(playerSelection, computerAnswer);
-    }
-}
+
+
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//       const playerSelection = alert("Choose rock, paper or scissors: ");
+//       const computerAnswer = getComputerChoice(choices);
+//       console.log(computerAnswer)
+//       round(playerSelection, computerAnswer);
+//     }
+// }
  
+const container = document.getElementById("container");
+const para = document.createElement("p");
+const para2 = document.createElement("p");
+
+const node = document.createTextNode("Congratulations! You won the game!");
+const node2 = document.createTextNode("Sorry, you lost the game. Better luck next time!");
+
+para.appendChild(node);
+para2.appendChild(node2);
+
+
 
 function gameScore(){
-    if (playerScore > computerScore) {
-    alert("Congratulations! You won the game!");
-} else if (playerScore < computerScore){
-    alert("Sorry, you lost the game. Better luck next time!");
-} else {
-    alert("Draw, no winner")
-}
+    if (playerScore >= 5) {
+    container.appendChild(para);
+
+} else if (computerScore >= 5){
+    container.appendChild(para2);
 }
 
-game();
-gameScore();
+}
+let computerAnswer = ""
+
+function playerSelectionRound(selection) {
+    return playerSelection = selection,
+    console.log(playerSelection),
+    computerAnswer = getComputerChoice(choices),
+    console.log(computerAnswer),
+    round(playerSelection, computerAnswer),
+    console.log(playerScore),
+    console.log("computer score = ", playerScore),
+    console.log("computer score = ", computerScore),
+    gameScore();
+}
+
+const playerSelectionRock = document.querySelector("#rock");
+playerSelectionRock.addEventListener("click", () => {
+  playerSelectionRound(rock)
+})
+
+const playerSelectionPaper = document.querySelector("#paper");
+playerSelectionPaper.addEventListener("click", () => {
+  playerSelectionRound(paper)
+})
+
+const playerSelectionScissors = document.querySelector("#scissors");
+playerSelectionScissors.addEventListener("click", () => {
+  playerSelectionRound(scissors)
+})
+
+
+
+
+
+
